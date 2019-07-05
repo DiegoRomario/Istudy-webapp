@@ -1,0 +1,12 @@
+.card {
+    border: 1px solid  #d9d9d9;
+    margin-top: 1.5vh;
+    min-height: 91vh;
+    border-radius: 1%;
+    background-color: #f2f2f2;
+    box-shadow: 7px 7px 10px 1px silver !important;
+}
+
+div:hover {
+    box-shadow: 7px 7px 10px 1px silver !important;
+  }
