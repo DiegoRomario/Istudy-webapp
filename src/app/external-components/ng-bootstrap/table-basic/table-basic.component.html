@@ -1,0 +1,24 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>User</th>
+      <th>Description</th>
+      <th class="text-right">Cycle</th>
+      <th class="text-right">Short Break</th>
+      <th class="text-right">Long Break</th>
+      <th class="text-right">Summary </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of cycle; index as i">
+      <th>{{c.Id }}</th>
+      <td>{{c.User}}</td>
+      <td>{{c.Description}}</td>
+      <td class="text-right">{{c.Cycle | number }}</td>
+      <td class="text-right">{{c.ShortBreak | number }}</td>
+      <td class="text-right">{{c.LongBreak | number }}</td>
+      <td class="text-right">{{c.Summary | number }}</td>
+    </tr>
+  </tbody>
+</table>

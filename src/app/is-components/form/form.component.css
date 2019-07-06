@@ -7,6 +7,10 @@
     box-shadow: 7px 7px 10px 1px silver !important;
 }
 
-div:hover {
+/* div:hover {
     box-shadow: 7px 7px 10px 1px silver !important;
+  } */
+
+  .content {
+      padding: 2vh;
   }

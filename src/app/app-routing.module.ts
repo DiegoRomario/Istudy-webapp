@@ -1,8 +1,10 @@
-import { HomeComponent } from './application/home/home.component';
+import { ConfigurationCycleComponent } from './is-pages/configuration-cycle/configuration-cycle.component';
+import { HomeComponent } from './is-pages/home/home.component';
+import { CycleComponent } from './is-pages/cycle/cycle.component';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ConfigurationCycleComponent } from './application/configuration-cycle/configuration-cycle.component';
-import { CycleComponent } from './application/cycle/cycle.component';
+
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},

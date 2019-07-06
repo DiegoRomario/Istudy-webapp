@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-cycle',
+  selector: 'is-cycle',
   templateUrl: './cycle.component.html',
   styleUrls: ['./cycle.component.css']
 })
