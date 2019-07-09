@@ -1,24 +1,15 @@
-<table class="table table-hover">
+<table class="table table-hover table-responsive-lg">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>User</th>
-      <th>Description</th>
-      <th class="text-right">Cycle</th>
-      <th class="text-right">Short Break</th>
-      <th class="text-right">Long Break</th>
-      <th class="text-right">Summary </th>
+      <th scope="col" *ngFor="let c of DataConfigurations" class="text-center">{{c.Header}}</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of cycle; index as i">
-      <th>{{c.Id }}</th>
-      <td>{{c.User}}</td>
-      <td>{{c.Description}}</td>
-      <td class="text-right">{{c.Cycle | number }}</td>
-      <td class="text-right">{{c.ShortBreak | number }}</td>
-      <td class="text-right">{{c.LongBreak | number }}</td>
-      <td class="text-right">{{c.Summary | number }}</td>
+    <tr *ngFor="let d of Data">
+      <td *ngFor="let c of DataConfigurations" class="text-center">
+       <span *ngIf="c.Pipe === null">{{d[c.Field]}}</span>
+       <span *ngIf="c.Pipe === 'DataHora'">{{d[c.Field] | date:'dd/MM/yyyy HH:mm'}}</span>
+      </td>
     </tr>
   </tbody>
 </table>
