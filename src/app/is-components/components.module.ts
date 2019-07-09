@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { RouterModule } from '@angular/router';
 import { FormComponent } from './form/form.component';
+import { ButtonCustomComponent } from './button-custom/button-custom.component';
 
 @NgModule({
-  declarations: [NavBarComponent, FormComponent],
-  exports: [NavBarComponent, FormComponent],
+  declarations: [NavBarComponent, FormComponent, ButtonCustomComponent],
+  exports: [NavBarComponent, FormComponent, ButtonCustomComponent],
   imports: [
     CommonModule, RouterModule
   ]

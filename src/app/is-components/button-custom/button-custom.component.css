@@ -1,0 +1,6 @@
+i {
+    color: black;
+}
+button:hover > i {
+    color: white;
+}
