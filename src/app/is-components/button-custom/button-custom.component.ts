@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 
 @Component({
@@ -9,13 +9,19 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ButtonCustomComponent implements OnInit {
 
   @Input() Title = 'default';
-  @Input() Style = 'dark';
+  @Input() StyleCustom = 'dark';
   @Input() IconRight: string;
   @Input() IconLeft: string;
+
+  @Output() OriginAction = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  MyClick() {
+    this.OriginAction.emit();
   }
 
 }

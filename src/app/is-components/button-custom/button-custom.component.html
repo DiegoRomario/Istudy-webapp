@@ -1,5 +1,5 @@
-<button type="button" class="btn btn-{{Style}}">
-<i *ngIf="IconLeft" class="fa fa-{{IconLeft}}" aria-hidden="true"></i> 
+<button (click)="MyClick();" type="button" class="btn btn-{{StyleCustom}}">
+<i  *ngIf="IconLeft" class="fa fa-{{IconLeft}}" aria-hidden="true"></i> 
 <span> {{Title}} </span> 
 <i *ngIf="IconRight" class="fa fa-{{IconRight}}" aria-hidden="true"></i> 
 </button>

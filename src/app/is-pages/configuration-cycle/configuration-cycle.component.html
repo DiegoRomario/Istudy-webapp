@@ -1,5 +1,34 @@
 <is-form title="Cycle Configuration">
-    <is-button-custom Title="New" Style="outline-dark" IconRight="plus" ></is-button-custom>
-    <is-button-custom Title="Back" Style="outline-dark" IconRight="arrow-left" ></is-button-custom>
-    <ngb-table-basic [Data]="configurations" [DataConfigurations]="dataConfiguration" ></ngb-table-basic>
+  <div class="pull-right mb-2">
+    <is-button-custom (click)="open(content)" Title="New" StyleCustom="outline-dark" IconRight="plus"></is-button-custom>
+    <is-button-custom (click)="Back()" class="ml-1" Title="Back" StyleCustom="outline-dark" IconRight="arrow-left">
+    </is-button-custom>
+  </div>
+  <ngb-table-basic [Data]="configurations" [DataConfigurations]="dataConfiguration">
+  </ngb-table-basic>
 </is-form>
+
+
+<ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">New Cycle Configuration</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              
+              
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <is-button-custom (click)="Save()" class="ml-1" Title="Save" StyleCustom="outline-dark" IconRight="save"></is-button-custom>
+        </div>
+      </ng-template>
+      
+      <hr>
+      
+      
