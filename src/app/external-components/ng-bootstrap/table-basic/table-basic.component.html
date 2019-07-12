@@ -6,9 +6,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let d of Data">
-      <td *ngFor="let c of DataConfigurations" class="text-center">
-       <span *ngIf="c.Pipe === null">{{d[c.Field]}}</span>
-       <span *ngIf="c.Pipe === 'DataHora'">{{d[c.Field] | date:'dd/MM/yyyy HH:mm'}}</span>
+      <td *ngFor="let c of DataConfigurations" class="text-center" (click)="Action(d);">
+          <span *ngIf="c.Pipe === null">{{d[c.Field]}}</span>
+          <span *ngIf="c.Pipe === 'DataHora'">{{d[c.Field] | date:'dd/MM/yyyy HH:mm'}}</span>
       </td>
     </tr>
   </tbody>

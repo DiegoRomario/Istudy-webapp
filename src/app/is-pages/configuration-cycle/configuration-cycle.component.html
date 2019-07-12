@@ -1,10 +1,10 @@
 <is-form title="Cycle Configuration">
   <div class="pull-right mb-2">
-    <is-button-custom (click)="open(content)" Title="New" StyleCustom="outline-dark" IconRight="plus"></is-button-custom>
+    <is-button-custom (click)="Open(content)" Title="New" StyleCustom="outline-dark" IconRight="plus"></is-button-custom>
     <is-button-custom (click)="Back()" class="ml-1" Title="Back" StyleCustom="outline-dark" IconRight="arrow-left">
     </is-button-custom>
   </div>
-  <ngb-table-basic [Data]="configurations" [DataConfigurations]="dataConfiguration">
+  <ngb-table-basic (OriginAction)="Edit(content, $event)"  IdField="Id" [Data]="configurations" [DataConfigurations]="dataConfiguration">    
   </ngb-table-basic>
 </is-form>
 
@@ -12,15 +12,55 @@
 <ng-template #content let-modal>
         <div class="modal-header">
           <h4 class="modal-title" id="modal-basic-title">New Cycle Configuration</h4>
-          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
+          <button type="button" class="btn" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <i class="fa fa-times" aria-hidden="true"></i>
           </button>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="form-group">
-              
-              
+          <form [formGroup]="form">
+            <div class="form-row">
+              <div class="form-group col-2">
+                <label for="Id">ID</label>
+                <input type="number" class="form-control" formControlName="Id" id="Id" placeholder="Auto">
+              </div>
+              <div class="form-group col-10">
+                <label for="UserName">User Name</label>
+                <input type="text" class="form-control" formControlName="UserName" id="UserName" placeholder="User Name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-12">
+                <label for="Description">Description</label>
+                <input type="text" class="form-control" formControlName="Description" id="Description" placeholder="Cycle Description">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-3">
+                <label for="Duration">Duration</label>
+                <input type="number" class="form-control" formControlName= "Duration" id="Duration" placeholder="Ex: 10, 20, 15 min.">
+              </div>
+              <div class="form-group col-3">
+                <label for="ShortBreak">Short Break</label>
+                <input type="number" class="form-control" formControlName="ShortBreak" id="ShortBreak" placeholder="Ex: 3, 5, 10 min.">
+              </div>
+              <div class="form-group col-3">
+                <label for="LongBreak">Long Break</label>
+                <input type="number" class="form-control" formControlName="LongBreak" id="LongBreak" placeholder="Ex: 10, 15, 30 min.">
+              </div>
+              <div class="form-group col-3">
+                <label for="Summary">Summary Time</label>
+                <input type="number" class="form-control" formControlName="SummaryTime" id="Summary" placeholder="Ex: 4, 10, 20 min.">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label for="InsertedIn">Inserted In</label>
+                <input type="text" class="form-control" formControlName="InsertedIn" id="InsertedIn" placeholder="Auto">
+              </div>
+              <div class="form-group col-6">
+                <label for="UpdatedIn">Updated In</label>
+                <input type="text" class="form-control" formControlName="UpdatedIn"  id="UpdatedIn" placeholder="Auto">
+              </div>
             </div>
           </form>
         </div>

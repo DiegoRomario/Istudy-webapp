@@ -1,5 +1,5 @@
 import { DataConfiguration } from './../../../is-models/data-configurations';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
 // tslint:disable-next-line: component-selector
@@ -10,5 +10,10 @@ import { Component, Input } from '@angular/core';
 export class TableBasicComponent  {
   @Input() Data: any[] = [];
   @Input() DataConfigurations: DataConfiguration[] = [];
+  @Input() IdField = 'Id';
+  @Output() OriginAction = new EventEmitter<string> ();
 
+  Action(row: any) {
+    this.OriginAction.emit(row[this.IdField]);
+  }
 }

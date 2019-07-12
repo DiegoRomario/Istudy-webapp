@@ -13,4 +13,7 @@ export class ConfigurationCycleService {
   listConfigurationsCycle() {
     return this.http.get<CycleViewModel[]>(this.configurationApi.ApiUrl() + 'cycle');
   }
+  listConfigurationsCycleById(Id: number) {
+    return this.http.get<CycleViewModel>(this.configurationApi.ApiUrl() + 'cycle/' + Id);
+  }
 }
