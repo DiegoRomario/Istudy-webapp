@@ -1,0 +1,11 @@
+<div *ngIf="formGroup; else container" [formGroup]="formGroup">
+  <p-calendar [locale]="ptbr" [showTime]="showTimer" [formControlName]="name" dateFormat="dd/mm/yy"
+    [selectionMode]="modoSel" (onSelect)="dataSelecionada($event)" [readonlyInput]="modoSel == 'range'"
+    (onClearClick)="dataLimpa($event)" inputStyleClass="form-control" ></p-calendar>
+</div>
+
+<ng-template #container>
+  <p-calendar [locale]="ptbr" [showTime]="showTimer" dateFormat="dd/mm/yy"
+    [selectionMode]="modoSel" (onSelect)="dataSelecionada($event)" [readonlyInput]="modoSel == 'range'"
+    (onClearClick)="dataLimpa($event)" inputStyleClass="form-control" ></p-calendar>
+</ng-template>

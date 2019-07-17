@@ -1,3 +1,4 @@
+import { PrimeNgModule } from './../external-components/prime-ng/prime-ng.module';
 import { NgBootstrapModule } from './../external-components/ng-bootstrap/ng-bootstrap.module';
 import { ComponentsModule } from './../is-components/components.module';
 import { NgModule } from '@angular/core';
@@ -13,7 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   exports: [HomeComponent, ConfigurationCycleComponent, CycleComponent],
   imports: [
     CommonModule, ComponentsModule, NgBootstrapModule, FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule, PrimeNgModule
   ]
 })
 export class PagesModule { }

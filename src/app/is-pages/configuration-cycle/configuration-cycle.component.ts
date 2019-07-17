@@ -3,7 +3,7 @@ import { ConfigurationCycleService } from './../../is-services/configuration-cyc
 import { Cycle, CycleViewModel } from './../../is-models/cycle';
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'is-configuration-cycle',
@@ -104,8 +104,8 @@ export class ConfigurationCycleComponent implements OnInit {
       ShortBreak: [this.model.ShortBreak],
       LongBreak: [this.model.LongBreak],
       SummaryTime: [this.model.SummaryTime],
-      InsertedIn: [this.model.InsertedIn],
-      UpdatedIn: [this.model.UpdatedIn]
+      InsertedIn: new FormControl({value: new Date(this.model.InsertedIn), disabled: true}, { validators: [] }),
+      UpdatedIn: new FormControl({value: new Date(this.model.UpdatedIn), disabled: true}, { validators: [] }),
     });
   }
 
