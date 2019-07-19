@@ -8,12 +8,13 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class ButtonCustomComponent implements OnInit {
 
-  @Input() Title = 'default';
-  @Input() StyleCustom = 'dark';
-  @Input() IconRight: string;
-  @Input() IconLeft: string;
+  @Input() title = 'default';
+  @Input() styleCustom = 'dark';
+  @Input() iconRight: string;
+  @Input() iconLeft: string;
+  @Input() disabled: false;
 
-  @Output() OriginAction = new EventEmitter<any>();
+  @Output() originAction = new EventEmitter<any>();
 
   constructor() { }
 
@@ -21,7 +22,7 @@ export class ButtonCustomComponent implements OnInit {
   }
 
   MyClick() {
-    this.OriginAction.emit();
+    this.originAction.emit();
   }
 
 }

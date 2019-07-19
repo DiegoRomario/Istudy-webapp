@@ -4,6 +4,7 @@ import { Cycle, CycleViewModel } from './../../is-models/cycle';
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { UserService } from 'src/app/is-services/user.service';
 
 @Component({
   selector: 'is-configuration-cycle',
@@ -32,7 +33,8 @@ export class ConfigurationCycleComponent implements OnInit {
 
   constructor(private configurarionCycle: ConfigurationCycleService,
               private modalService: NgbModal,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private userService: UserService) {
 
     this.CreateForm();
 
@@ -45,34 +47,35 @@ export class ConfigurationCycleComponent implements OnInit {
   listConfigurations() {
     this.configurarionCycle.listConfigurationsCycle()
       .subscribe(configurations => {
-      this.configurations = configurations; console.log(this.configurations);
+        this.configurations = configurations; console.log(this.configurations);
       });
   }
   listConfigurationsById(Id: number) {
+    if (Id > 0) {
     this.configurarionCycle.listConfigurationsCycleById(Id)
       .subscribe(configuration => {
-      this.model = configuration; console.log(this.model); this.CreateForm();
+        this.model = configuration; console.log(this.model); this.CreateForm();
       });
+    } else {
+      this.model = new CycleViewModel();
+      this.model.UserName = this.userService.getUserName();
+      this.CreateForm();
+    }
   }
 
-  Open(content) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', size: 'lg' }).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  Edit(content, Id) {
+  Open(content, Id) {
     this.listConfigurationsById(Id);
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', size: 'lg' }).result.then((result) => {
+    this.modalService.open(content, {
+      ariaLabelledBy: 'modal-basic-title',
+      size: 'lg',
+      backdrop: 'static',
+      keyboard: false
+    }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
-
   }
-
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -91,21 +94,24 @@ export class ConfigurationCycleComponent implements OnInit {
     window.history.go(-1);
   }
   Save() {
-    alert('Save');
+    const newConfig = this.form.getRawValue() as Cycle;
+    newConfig.User = this.userService.getUserId();
+    this.configurarionCycle.save(newConfig).subscribe(() => console.log('Salvo com sucesso!'),
+      err => console.log(err));
   }
 
 
   CreateForm() {
     this.form = this.formBuilder.group({
-      Id: [this.model.Id, Validators.required],
-      UserName: [this.model.UserName, Validators.required],
+      Id: [{value: this.model.Id, disabled: true}, Validators.required],
+      UserName: [{ value: this.model.UserName, disabled: true }, Validators.required],
       Description: [this.model.Description, Validators.required],
       Duration: [this.model.Duration, Validators.required],
       ShortBreak: [this.model.ShortBreak],
       LongBreak: [this.model.LongBreak],
       SummaryTime: [this.model.SummaryTime],
-      InsertedIn: new FormControl({value: new Date(this.model.InsertedIn), disabled: true}, { validators: [] }),
-      UpdatedIn: new FormControl({value: new Date(this.model.UpdatedIn), disabled: true}, { validators: [] }),
+      InsertedIn: new FormControl({ value: new Date(this.model.InsertedIn), disabled: true }, { validators: [] }),
+      UpdatedIn: new FormControl({ value: new Date(this.model.UpdatedIn), disabled: true }, { validators: [] }),
     });
   }
 

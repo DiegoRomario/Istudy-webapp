@@ -8,12 +8,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./table-basic.component.css']
 })
 export class TableBasicComponent  {
-  @Input() Data: any[] = [];
-  @Input() DataConfigurations: DataConfiguration[] = [];
-  @Input() IdField = 'Id';
-  @Output() OriginAction = new EventEmitter<string> ();
+  @Input() data: any[] = [];
+  @Input() dataConfigurations: DataConfiguration[] = [];
+  @Input() idField = 'Id';
+  @Output() originAction = new EventEmitter<string> ();
 
   Action(row: any) {
-    this.OriginAction.emit(row[this.IdField]);
+    this.originAction.emit(row[this.idField]);
   }
 }
