@@ -7,14 +7,14 @@ import { HomeComponent } from './home/home.component';
 import { ConfigurationCycleComponent } from './configuration-cycle/configuration-cycle.component';
 import { CycleComponent } from './cycle/cycle.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { CountdownModule } from 'ngx-countdown';
 
 @NgModule({
   declarations: [HomeComponent, ConfigurationCycleComponent, CycleComponent],
   exports: [HomeComponent, ConfigurationCycleComponent, CycleComponent],
   imports: [
     CommonModule, ComponentsModule, NgBootstrapModule, FormsModule,
-    ReactiveFormsModule, PrimeNgModule
+    ReactiveFormsModule, PrimeNgModule, CountdownModule
   ]
 })
 export class PagesModule { }

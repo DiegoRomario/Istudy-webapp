@@ -1,3 +1,7 @@
-<p>
-  cycle works!
-</p>
+<div style="font-size: 24px;" class="mt-3" >
+<countdown #countdown [config]="config" >$!m!:$!s-ext!</countdown>
+<button (click)="Start()" class="btn btn-link btn-sm">Start</button>
+<button (click)="Pause()" class="btn btn-link btn-sm">Pause</button>
+<button (click)="Restart();" class="btn btn-link btn-sm">Restart</button>
+<button (click)="Reset();" class="btn btn-link btn-sm">Reset</button>
+</div>
