@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableBasicComponent } from './table-basic/table-basic.component';
+import { TabCustomComponent } from './tab-custom/tab-custom.component';
 
 @NgModule({
-  declarations: [TableBasicComponent],
-  exports: [TableBasicComponent],
+  declarations: [TableBasicComponent, TabCustomComponent],
+  exports: [NgbModule, TableBasicComponent, TabCustomComponent],
   imports: [
     CommonModule, BrowserModule, NgbModule
   ]

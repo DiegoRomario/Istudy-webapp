@@ -1,0 +1,40 @@
+<div class="mt-3">
+  <ngb-tabset justify="fill">
+    <ngb-tab *ngIf="title1" [title]="title1">
+      <ng-template ngbTabContent>
+        <div class="center">
+          <ng-content select="[tab1]"></ng-content>
+        </div>
+      </ng-template>
+    </ngb-tab>
+
+    <ngb-tab *ngIf="title2" [title]="title2">
+      <ng-template ngbTabContent>
+        <div class="center">
+          <ng-content select="[tab2]"></ng-content>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab *ngIf="title3" [title]="title3">
+      <ng-template ngbTabContent>
+        <div class="center">
+          <ng-content select="[tab3]"></ng-content>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab *ngIf="title4" [title]="title4">
+      <ng-template ngbTabContent>
+        <div class="center">
+          <ng-content select="[tab4]"></ng-content>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab *ngIf="title5" [title]="title5">
+      <ng-template ngbTabContent>
+        <div class="center">
+          <ng-content select="[tab5]"></ng-content>
+        </div>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>

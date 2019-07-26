@@ -1,0 +1,21 @@
+.elegantshd {
+    
+    color: #2d2c31;
+    letter-spacing: .05em;
+    text-shadow: 4px 4px 0px #d5d5d5, 4px 4px 0px rgba(0, 0, 0, 0.2);
+    font-size: 84px;
+  }
+
+  .elegantshd:hover {
+    color: #242327;
+    text-shadow: 4px 4px 0px #c4c0c0, 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+ div {
+    
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+  }
+
+.card:hover {
+  box-shadow:0 4px 1rem rgba(0,0,0,.175)!important
+}

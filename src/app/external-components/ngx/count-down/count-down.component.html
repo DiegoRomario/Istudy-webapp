@@ -1,0 +1,17 @@
+
+  <div class="text-center ">
+      <div class="card bg-light mt-2">
+          <div class="card-header"><i class="fa fa-clock-o" aria-hidden="true"></i> {{title}}</div>
+          <div class="card-body elegantshd">
+            <countdown #countdown [config]="config">$!m!:$!s-ext!</countdown>
+          </div>
+        </div>
+  </div>
+
+  <div class="text-center mt-3">
+    <is-button-custom lineBreakIconRight="true" width="80" iconRight="play" styleButton="outline-dark" title="Start"  (originAction)="Start()"></is-button-custom>
+    <is-button-custom lineBreakIconRight="true" width="80" iconRight="pause" styleButton="outline-dark ml-1" title="Pause" (originAction)="Pause()"></is-button-custom>
+    <is-button-custom lineBreakIconRight="true" width="80" iconRight="refresh" styleButton="outline-dark ml-1" title="Restart" (originAction)="Restart();"></is-button-custom>
+    <is-button-custom lineBreakIconRight="true" width="80" iconRight="undo"styleButton="outline-dark ml-1" title="Reset" (originAction)="Reset();"></is-button-custom>
+  </div>
+

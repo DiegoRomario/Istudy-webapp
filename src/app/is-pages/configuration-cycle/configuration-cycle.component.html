@@ -1,7 +1,7 @@
 <is-form title="Cycle Configuration">
   <div class="pull-right mb-2">
-    <is-button-custom (click)="Open(content, 0)" title="New" styleCustom="outline-dark" iconRight="plus"></is-button-custom>
-    <is-button-custom (click)="Back()" class="ml-1" title="Back" styleCustom="outline-dark" iconRight="arrow-left"></is-button-custom>
+    <is-button-custom (originAction)="Open(content, 0)" title="New" styleButton="outline-dark" iconRight="plus"></is-button-custom>
+    <is-button-custom (originAction)="Back()" class="dark ml-1" title="Back" styleButton="outline-dark" iconRight="arrow-left"></is-button-custom>
   </div>
   <ngb-table-basic (originAction)="Open(content, $event)"  idField="Id" [data]="configurations" [dataConfigurations]="dataConfiguration">    
   </ngb-table-basic>
@@ -62,13 +62,10 @@
               </div>
             </div>
             <div class="modal-footer">
-              <is-button-custom [disabled]="form.invalid" (click)="Save()" ng class="ml-1" title="Save" styleCustom="dark" iconRight="save"></is-button-custom>
+              <is-button-custom [disabled]="form.invalid" (originAction)="Save()" title="Save" styleButton="dark" iconRight="save"></is-button-custom>
             </div>
           </form>
         </div>
 
       </ng-template>
-      
-      <hr>
-      
       

@@ -1,7 +1,30 @@
-<div style="font-size: 24px;" class="mt-3" >
-<countdown #countdown [config]="config" >$!m!:$!s-ext!</countdown>
-<button (click)="Start()" class="btn btn-link btn-sm">Start</button>
-<button (click)="Pause()" class="btn btn-link btn-sm">Pause</button>
-<button (click)="Restart();" class="btn btn-link btn-sm">Restart</button>
-<button (click)="Reset();" class="btn btn-link btn-sm">Reset</button>
-</div>
+ <ngb-tab-custom title1="Cycle" title2="Short Break" title3="Long Break" title4="Summary Time">
+    <ngx-count-down tab1 seconds="1500"></ngx-count-down>
+    <ngx-count-down tab2 seconds="300"></ngx-count-down>
+    <ngx-count-down tab3 seconds="900"></ngx-count-down>
+    <ngx-count-down tab4 seconds="240"></ngx-count-down>
+</ngb-tab-custom> 
+
+<!-- <div class="mt-3">
+  <ngb-tabset justify="fill">
+    <ngb-tab title="Simple">
+      <ng-template ngbTabContent>
+        <div class="center">
+          <ngx-count-down seconds="80"></ngx-count-down>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>Fancy title</ng-template>
+      <ng-template ngbTabContent>
+            <ngx-count-down seconds="50"></ngx-count-down>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="A very long nav title">
+      <ng-template ngbTabContent>
+            <ngx-count-down seconds="30"></ngx-count-down>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+
+</div> -->
