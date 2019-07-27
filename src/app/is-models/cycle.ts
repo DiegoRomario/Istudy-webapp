@@ -1,4 +1,4 @@
-export class Cycle {
+export class CycleConfiguration {
     Id: number;
     User: number;
     Description: string;
@@ -6,11 +6,12 @@ export class Cycle {
     ShortBreak: number;
     LongBreak: number;
     SummaryTime: number;
+    CurrentCycle: boolean;
     InsertedIn: Date = new Date();
     UpdatedIn: Date = new Date();
   }
 
-export class CycleViewModel {
+export class CycleConfigurationViewModel {
     Id: number;
     UserName: string;
     Description: string;
@@ -18,6 +19,7 @@ export class CycleViewModel {
     ShortBreak: number;
     LongBreak: number;
     SummaryTime: number;
+    CurrentCycle: boolean;
     InsertedIn: Date = new Date();
     UpdatedIn: Date = new Date();
   }

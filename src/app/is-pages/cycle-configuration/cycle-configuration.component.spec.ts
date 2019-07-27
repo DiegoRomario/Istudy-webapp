@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConfigurationCycleComponent } from './configuration-cycle.component';
+import { CycleConfigurationComponent } from './cycle-configuration.component';
 
-describe('ConfigurationCycleComponent', () => {
-  let component: ConfigurationCycleComponent;
-  let fixture: ComponentFixture<ConfigurationCycleComponent>;
+describe('CycleConfigurationComponent', () => {
+  let component: CycleConfigurationComponent;
+  let fixture: ComponentFixture<CycleConfigurationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConfigurationCycleComponent ]
+      declarations: [ CycleConfigurationComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConfigurationCycleComponent);
+    fixture = TestBed.createComponent(CycleConfigurationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

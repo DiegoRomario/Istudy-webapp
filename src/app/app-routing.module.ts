@@ -1,4 +1,5 @@
-import { ConfigurationCycleComponent } from './is-pages/configuration-cycle/configuration-cycle.component';
+import { CurrentCycleConfigurationResolver } from './is-services/is-resolvers/current-cycle-configuration.resolve';
+import { CycleConfigurationComponent } from './is-pages/cycle-configuration/cycle-configuration.component';
 import { HomeComponent } from './is-pages/home/home.component';
 import { CycleComponent } from './is-pages/cycle/cycle.component';
 
@@ -7,10 +8,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'configuration-cycle', component: ConfigurationCycleComponent},
-  {path: 'cycle', component: CycleComponent},
-  {path: '', component: HomeComponent}];
+  { path: 'home', component: HomeComponent },
+  { path: 'cycle-configuration', component: CycleConfigurationComponent },
+  {
+    path: 'cycle',
+    component: CycleComponent,
+    resolve: { currentConfiguration: CurrentCycleConfigurationResolver }
+  },
+  { path: '', component: HomeComponent }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],

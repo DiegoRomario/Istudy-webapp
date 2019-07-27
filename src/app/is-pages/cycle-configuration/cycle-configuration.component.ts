@@ -1,23 +1,23 @@
-import { DataConfiguration } from './../../is-models/data-configurations';
-import { ConfigurationCycleService } from './../../is-services/configuration-cycle.service';
-import { Cycle, CycleViewModel } from './../../is-models/cycle';
+import { DataConfiguration } from '../../is-models/data-configurations';
+import { CycleConfigurationService } from '../../is-services/cycle-configuration.service';
+import { CycleConfiguration, CycleConfigurationViewModel } from '../../is-models/cycle';
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { UserService } from 'src/app/is-services/user.service';
 
 @Component({
-  selector: 'is-configuration-cycle',
-  templateUrl: './configuration-cycle.component.html',
-  styleUrls: ['./configuration-cycle.component.css']
+  selector: 'is-cycle-configuration',
+  templateUrl: './cycle-configuration.component.html',
+  styleUrls: ['./cycle-configuration.component.css']
 })
-export class ConfigurationCycleComponent implements OnInit {
+export class CycleConfigurationComponent implements OnInit {
 
   closeResult: string;
 
   @Input() title = 'Configurations Cycle';
-  @Input() configurations: CycleViewModel[] = [];
-  @Input() model: CycleViewModel = new CycleViewModel();
+  @Input() configurations: CycleConfigurationViewModel[] = [];
+  @Input() model: CycleConfigurationViewModel = new CycleConfigurationViewModel();
   form: FormGroup;
 
   dataConfiguration: DataConfiguration[] = [
@@ -31,7 +31,7 @@ export class ConfigurationCycleComponent implements OnInit {
     new DataConfiguration('Inserted in', 'InsertedIn', 'DataHora'),
     new DataConfiguration('Updated in', 'UpdatedIn', 'DataHora')];
 
-  constructor(private configurarionCycle: ConfigurationCycleService,
+  constructor(private configurarionCycle: CycleConfigurationService,
               private modalService: NgbModal,
               private formBuilder: FormBuilder,
               private userService: UserService) {
@@ -57,7 +57,7 @@ export class ConfigurationCycleComponent implements OnInit {
         this.model = configuration; console.log(this.model); this.CreateForm();
       });
     } else {
-      this.model = new CycleViewModel();
+      this.model = new CycleConfigurationViewModel();
       this.model.UserName = this.userService.getUserName();
       this.CreateForm();
     }
@@ -94,7 +94,7 @@ export class ConfigurationCycleComponent implements OnInit {
     window.history.go(-1);
   }
   Save() {
-    const newConfig = this.form.getRawValue() as Cycle;
+    const newConfig = this.form.getRawValue() as CycleConfiguration;
     newConfig.User = this.userService.getUserId();
     this.configurarionCycle.save(newConfig).subscribe(() => console.log('Salvo com sucesso!'),
       err => console.log(err));

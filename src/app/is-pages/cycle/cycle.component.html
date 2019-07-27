@@ -1,30 +1,32 @@
- <ngb-tab-custom title1="Cycle" title2="Short Break" title3="Long Break" title4="Summary Time">
-    <ngx-count-down tab1 seconds="1500"></ngx-count-down>
-    <ngx-count-down tab2 seconds="300"></ngx-count-down>
-    <ngx-count-down tab3 seconds="900"></ngx-count-down>
-    <ngx-count-down tab4 seconds="240"></ngx-count-down>
-</ngb-tab-custom> 
-
-<!-- <div class="mt-3">
+<div class="mt-3">
   <ngb-tabset justify="fill">
-    <ngb-tab title="Simple">
+    <ngb-tab title="Cycle">
       <ng-template ngbTabContent>
         <div class="center">
-          <ngx-count-down seconds="80"></ngx-count-down>
+          <ngx-count-down title="{{currentConfiguration.Description}}" seconds="{{currentConfiguration.Duration}}"></ngx-count-down>
         </div>
       </ng-template>
     </ngb-tab>
-    <ngb-tab>
-      <ng-template ngbTabTitle>Fancy title</ng-template>
+    <ngb-tab title="Short Break">
       <ng-template ngbTabContent>
-            <ngx-count-down seconds="50"></ngx-count-down>
+        <div class="center">
+          <ngx-count-down title="{{currentConfiguration.Description}}" seconds="{{currentConfiguration.ShortBreak}}"></ngx-count-down>
+        </div>
       </ng-template>
-    </ngb-tab>
-    <ngb-tab title="A very long nav title">
+    </ngb-tab> 
+    <ngb-tab title="Long Break">
       <ng-template ngbTabContent>
-            <ngx-count-down seconds="30"></ngx-count-down>
+        <div class="center">
+          <ngx-count-down title="{{currentConfiguration.Description}}" seconds="{{currentConfiguration.LongBreak}}"></ngx-count-down>
+        </div>
       </ng-template>
-    </ngb-tab>
+    </ngb-tab>   
+    <ngb-tab title="Summary Time">
+      <ng-template ngbTabContent>
+        <div class="center">
+          <ngx-count-down title="{{currentConfiguration.Description}}" seconds="{{currentConfiguration.SummaryTime}}"></ngx-count-down>
+        </div>
+      </ng-template>
+    </ngb-tab>          
   </ngb-tabset>
-
-</div> -->
+</div>
