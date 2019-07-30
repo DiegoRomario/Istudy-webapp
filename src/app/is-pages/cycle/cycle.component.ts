@@ -5,6 +5,7 @@ import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 
+
 @Component({
   selector: 'is-cycle',
   templateUrl: './cycle.component.html',
@@ -13,10 +14,10 @@ import { ActivatedRoute } from '@angular/router';
 export class CycleComponent implements OnInit {
 
   currentConfiguration = new CycleConfigurationViewModel();
-  constructor(private currentCycleConfiguration: CurrentCycleConfigurationService, 
-              private activatedRoute: ActivatedRoute,) {
+  constructor(private currentCycleConfiguration: CurrentCycleConfigurationService,
+              private activatedRoute: ActivatedRoute,
+              ) {  }
 
-  }
 
 
   ngOnInit(): void {

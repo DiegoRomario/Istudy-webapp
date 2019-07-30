@@ -3,7 +3,7 @@
       <div class="card bg-light mt-2">
           <div class="card-header"><i class="fa fa-clock-o" aria-hidden="true"></i> {{title}}</div>
           <div class="card-body elegantshd">
-            <countdown #countdown [config]="config">$!m!:$!s-ext!</countdown>
+            <countdown (finished)="showPush()" (notify)="onNotify($event)" #countdown [config]="config">$!m!:$!s-ext!</countdown>
           </div>
         </div>
   </div>

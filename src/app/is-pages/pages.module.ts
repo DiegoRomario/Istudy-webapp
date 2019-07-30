@@ -9,6 +9,7 @@ import { CycleConfigurationComponent } from './cycle-configuration/cycle-configu
 import { CycleComponent } from './cycle/cycle.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [HomeComponent, CycleConfigurationComponent, CycleComponent],
   exports: [HomeComponent, CycleConfigurationComponent, CycleComponent],
