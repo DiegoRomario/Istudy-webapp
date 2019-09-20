@@ -1,5 +1,5 @@
+import { CycleConfiguration } from './../../is-models/cycle';
 import { CurrentCycleConfigurationService } from './../../is-services/current-cycle-configuration.service';
-import { CycleConfigurationViewModel } from './../../is-models/cycle';
 
 import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CycleComponent implements OnInit {
 
-  currentConfiguration = new CycleConfigurationViewModel();
+  currentConfiguration = new CycleConfiguration();
   constructor(private currentCycleConfiguration: CurrentCycleConfigurationService,
               private activatedRoute: ActivatedRoute,
               ) {  }

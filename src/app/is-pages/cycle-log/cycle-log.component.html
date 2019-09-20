@@ -1,0 +1,9 @@
+<is-form title="Cycle Logs">
+  <div class="pull-right mb-2">
+    <is-button-custom (originAction)="Back()" class="dark ml-1" title="Back" styleButton="outline-dark"
+      iconRight="arrow-left"></is-button-custom>
+  </div>
+  <ngb-table-basic [data]="logs"
+    [dataConfigurations]="dataConfiguration">
+  </ngb-table-basic>
+</is-form>

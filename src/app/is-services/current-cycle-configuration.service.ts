@@ -1,4 +1,4 @@
-import { CycleConfigurationViewModel } from './../is-models/cycle';
+import { CycleConfiguration } from './../is-models/cycle';
 import { ConfigurationApiService } from './configuration-api.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -8,6 +8,6 @@ export class CurrentCycleConfigurationService {
     constructor(private http: HttpClient, private configurationApi: ConfigurationApiService ) {}
 
     listConfigurationsCycle() {
-        return this.http.get<CycleConfigurationViewModel>(this.configurationApi.ApiUrl() + 'CurrentCycleConfiguration');
+        return this.http.get<CycleConfiguration>(this.configurationApi.ApiUrl() + 'CurrentCycleConfiguration');
       }
 }

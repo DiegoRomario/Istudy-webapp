@@ -8,11 +8,12 @@ import { HomeComponent } from './home/home.component';
 import { CycleConfigurationComponent } from './cycle-configuration/cycle-configuration.component';
 import { CycleComponent } from './cycle/cycle.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CycleLogComponent } from './cycle-log/cycle-log.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, CycleConfigurationComponent, CycleComponent],
-  exports: [HomeComponent, CycleConfigurationComponent, CycleComponent],
+  declarations: [HomeComponent, CycleConfigurationComponent, CycleComponent, CycleLogComponent],
+  exports: [HomeComponent, CycleConfigurationComponent, CycleComponent, CycleLogComponent],
   imports: [
     CommonModule, ComponentsModule, NgBootstrapModule, FormsModule,
     ReactiveFormsModule, PrimeNgModule, NgxModule

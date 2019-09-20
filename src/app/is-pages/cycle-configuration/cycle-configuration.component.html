@@ -1,71 +1,86 @@
 <is-form title="Cycle Configuration">
   <div class="pull-right mb-2">
-    <is-button-custom (originAction)="Open(content, 0)" title="New" styleButton="outline-dark" iconRight="plus"></is-button-custom>
-    <is-button-custom (originAction)="Back()" class="dark ml-1" title="Back" styleButton="outline-dark" iconRight="arrow-left"></is-button-custom>
+    <is-button-custom (originAction)="Open(content, 0)" title="New" styleButton="outline-dark" iconRight="plus">
+    </is-button-custom>
+    <is-button-custom (originAction)="Back()" class="dark ml-1" title="Back" styleButton="outline-dark"
+      iconRight="arrow-left"></is-button-custom>
   </div>
-  <ngb-table-basic (originAction)="Open(content, $event)"  idField="Id" [data]="configurations" [dataConfigurations]="dataConfiguration">    
+  <ngb-table-basic (originAction)="Open(content, $event)" idField="Id" [data]="configurations"
+    [dataConfigurations]="dataConfiguration">
   </ngb-table-basic>
 </is-form>
 
 
 <ng-template #content let-modal>
-        <div class="modal-header">
-          <h4 class="modal-title" id="modal-basic-title">New Cycle Configuration</h4>
-          <button type="button" class="btn" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <i class="fa fa-times" aria-hidden="true"></i>
-          </button>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New Cycle Configuration</h4>
+    <button type="button" class="btn" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form">
+      <div class="form-row">
+        <div class="form-group col-2">
+          <label for="Id">ID</label>
+          <input type="number" class="form-control" formControlName="Id" id="Id" placeholder="Auto">
         </div>
-        <div class="modal-body">
-          <form [formGroup]="form">
-            <div class="form-row">
-              <div class="form-group col-2">
-                <label for="Id">ID</label>
-                <input type="number" class="form-control" formControlName="Id" id="Id" placeholder="Auto">
-              </div>
-              <div class="form-group col-10">
-                <label for="UserName">User Name</label>
-                <input type="text" class="form-control" formControlName="UserName" id="UserName" placeholder="User Name">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-12">
-                <label for="Description">Description</label>
-                <input autofocus type="text" [class.error]="form.get('Description').errors?.required"  class="form-control" formControlName="Description" id="Description" placeholder="Cycle Description">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-3">
-                <label for="Duration">Duration</label>
-                <input type="number" [class.error]="form.get('Duration').errors?.required" class="form-control" formControlName= "Duration" id="Duration" placeholder="Ex: 10, 20, 15 min.">
-              </div>
-              <div class="form-group col-3">
-                <label for="ShortBreak">Short Break</label>
-                <input type="number" class="form-control" formControlName="ShortBreak" id="ShortBreak" placeholder="Ex: 3, 5, 10 min.">
-              </div>
-              <div class="form-group col-3">
-                <label for="LongBreak">Long Break</label>
-                <input type="number" class="form-control" formControlName="LongBreak" id="LongBreak" placeholder="Ex: 10, 15, 30 min.">
-              </div>
-              <div class="form-group col-3">
-                <label for="Summary">Summary Time</label>
-                <input type="number" class="form-control" formControlName="SummaryTime" id="Summary" placeholder="Ex: 4, 10, 20 min.">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-6">
-                <label for="InsertedIn">Inserted In</label>
-               <prime-date-time-picker name="InsertedIn" [formGroup]="form"></prime-date-time-picker>
-              </div>
-              <div class="form-group col-6">
-                <label for="UpdatedIn">Updated In</label>
-                <prime-date-time-picker name="UpdatedIn" [formGroup]="form"></prime-date-time-picker>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <is-button-custom [disabled]="form.invalid" (originAction)="Save()" title="Save" styleButton="dark" iconRight="save"></is-button-custom>
-            </div>
-          </form>
+        <div class="form-group col-10">
+          <label for="UserName">User Name</label>
+          <input type="text" class="form-control" formControlName="UserName" id="UserName" placeholder="User Name">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-10">
+          <label for="Description">Description</label>
+          <input autofocus type="text" [class.error]="form.get('Description').errors?.required" class="form-control"
+            formControlName="Description" id="Description" placeholder="Cycle Description">
+        </div>
+        <div class="form-group col-2">
+          <div class="custom-control custom-checkbox mt-40">
+            <input formControlName="CurrentCycle" type="checkbox" class="custom-control-input" id="CurrentCycle">
+            <label  class="custom-control-label " for="CurrentCycle">Current Cycle</label>
+          </div>
         </div>
 
-      </ng-template>
-      
+      </div>
+      <div class="form-row">
+        <div class="form-group col-3">
+          <label for="Duration">Duration</label>
+          <input type="number" [class.error]="form.get('Duration').errors?.required" class="form-control"
+            formControlName="Duration" id="Duration" placeholder="Ex: 10, 20, 15 min.">
+        </div>
+        <div class="form-group col-3">
+          <label for="ShortBreak">Short Break</label>
+          <input type="number" class="form-control" formControlName="ShortBreak" id="ShortBreak"
+            placeholder="Ex: 3, 5, 10 min.">
+        </div>
+        <div class="form-group col-3">
+          <label for="LongBreak">Long Break</label>
+          <input type="number" class="form-control" formControlName="LongBreak" id="LongBreak"
+            placeholder="Ex: 10, 15, 30 min.">
+        </div>
+        <div class="form-group col-3">
+          <label for="Summary">Summary Time</label>
+          <input type="number" class="form-control" formControlName="SummaryTime" id="Summary"
+            placeholder="Ex: 4, 10, 20 min.">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-6">
+          <label for="InsertedIn">Inserted In</label>
+          <prime-date-time-picker name="InsertedIn" [formGroup]="form"></prime-date-time-picker>
+        </div>
+        <div class="form-group col-6">
+          <label for="UpdatedIn">Updated In</label>
+          <prime-date-time-picker name="UpdatedIn" [formGroup]="form"></prime-date-time-picker>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <is-button-custom [disabled]="form.invalid" (originAction)="Save()" title="Save" styleButton="dark"
+          iconRight="save"></is-button-custom>
+      </div>
+    </form>
+  </div>
+
+</ng-template>
