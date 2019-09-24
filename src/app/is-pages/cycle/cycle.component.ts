@@ -1,5 +1,6 @@
+import { CycleLog, ActionCycle } from './../../is-models/cycle-log';
+import { CycleLogService } from './../../is-services/cycle-log.service';
 import { CycleConfiguration } from './../../is-models/cycle';
-import { CurrentCycleConfigurationService } from './../../is-services/current-cycle-configuration.service';
 
 import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -14,11 +15,26 @@ import { ActivatedRoute } from '@angular/router';
 export class CycleComponent implements OnInit {
 
   currentConfiguration = new CycleConfiguration();
-  constructor(private currentCycleConfiguration: CurrentCycleConfigurationService,
-              private activatedRoute: ActivatedRoute,
+  cycleLog = new CycleLog();
+
+
+  constructor(private activatedRoute: ActivatedRoute,
+              private cycleLogService: CycleLogService
               ) {  }
 
+  log(paction: ActionCycle) {
+    this.cycleLog = Object.assign(new CycleLog(),
+                                  this.currentConfiguration,
+                                  {CycleId : this.currentConfiguration.Id,
+                                  Id: 0,
+                                  Action: paction,
+                                  DateLog: new Date()});
 
+
+    this.cycleLogService.save(this.cycleLog).subscribe( x => { console.log(x); });
+
+    alert ('demo');
+  }
 
   ngOnInit(): void {
     this.listConfigurations();
@@ -27,9 +43,8 @@ export class CycleComponent implements OnInit {
 
   listConfigurations() {
     this.currentConfiguration =  this.activatedRoute.snapshot.data.currentConfiguration;
-    // this.currentCycleConfiguration.listConfigurationsCycle()
-    //   .subscribe(configurations => {
-    //     this.cycleConfiguration = configurations;
-    //   });
   }
+
+
+
 }

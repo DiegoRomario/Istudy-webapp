@@ -1,7 +1,8 @@
 import { CycleConfiguration } from './cycle';
 import { User } from './user';
-export class CycleLog {
-    Id: number;
+import { BaseModel } from '../core/base/models/base-model';
+
+export class CycleLog extends BaseModel {
     UserId: number;
     CycleId: number;
     Note: string;
@@ -9,9 +10,13 @@ export class CycleLog {
     DateLog: Date;
     User: User;
     Cycle: CycleConfiguration;
+
+    static fromModel(Data: any): CycleLog {
+        return Object.assign(new CycleLog(), Data);
+    }
 }
 
-export class CycleLogViewModel {
+export class CycleLogViewModel extends BaseModel {
     Id: number;
     UserName: string;
     UserId: number;

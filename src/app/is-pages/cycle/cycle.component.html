@@ -3,7 +3,7 @@
     <ngb-tab title="Cycle">
       <ng-template ngbTabContent>
         <div class="center">
-          <ngx-count-down title="{{currentConfiguration.Description}}" seconds="{{currentConfiguration.Duration}}">
+          <ngx-count-down (timeIsOver)="log(1);" title="{{currentConfiguration.Description}}" seconds="{{currentConfiguration.Duration}}">
           </ngx-count-down>
         </div>
       </ng-template>
@@ -11,7 +11,7 @@
     <ngb-tab title="Short Break">
       <ng-template ngbTabContent>
         <div class="center">
-          <ngx-count-down title="{{currentConfiguration.Description}}" seconds="{{currentConfiguration.ShortBreak}}">
+          <ngx-count-down (timeIsOver)="log(2);" title="{{currentConfiguration.Description}}" seconds="{{currentConfiguration.ShortBreak}}">
           </ngx-count-down>
         </div>
       </ng-template>
@@ -19,7 +19,7 @@
     <ngb-tab title="Long Break">
       <ng-template ngbTabContent>
         <div class="center">
-          <ngx-count-down title="{{currentConfiguration.Description}}" seconds="{{currentConfiguration.LongBreak}}">
+          <ngx-count-down (timeIsOver)="log(3);" title="{{currentConfiguration.Description}}" seconds="{{currentConfiguration.LongBreak}}">
           </ngx-count-down>
         </div>
       </ng-template>
@@ -27,7 +27,7 @@
     <ngb-tab title="Summary Time">
       <ng-template ngbTabContent>
         <div class="center">
-          <ngx-count-down title="{{currentConfiguration.Description}}" seconds="{{currentConfiguration.SummaryTime}}">
+          <ngx-count-down (timeIsOver)="log(4);" title="{{currentConfiguration.Description}}" seconds="{{currentConfiguration.SummaryTime}}">
           </ngx-count-down>
         </div>
       </ng-template>
