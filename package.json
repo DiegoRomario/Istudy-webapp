@@ -23,7 +23,7 @@
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ng-pick-datetime": "^7.0.0",
     "ng-push-notification": "^1.1.0",
     "ngx-countdown": "^3.2.0",
